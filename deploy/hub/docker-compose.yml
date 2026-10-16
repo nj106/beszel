@@ -12,8 +12,7 @@ services:
       - DISABLE_SSH=true
     volumes:
       - beszel_data:/beszel_data
-    networks:
-      - beszel-net
+    network_mode: bridge
     labels:
       - com.centurylinklabs.watchtower.enable=true
     logging:
@@ -31,7 +30,3 @@ services:
 volumes:
   beszel_data:
     name: beszel_data
-
-networks:
-  beszel-net:
-    driver: bridge
